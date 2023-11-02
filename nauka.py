@@ -1,4 +1,4 @@
-import pygame,sys,math
+import pygame,sys
 from rocket import Rocket
 from star import Star
 
@@ -59,11 +59,12 @@ class Game(object):
         self.star.draw()
     
     def catch(self):
-        space_delta = 20
+        space_delta = 30
         x_catch_pos = abs(self.player.pos[0]-self.star.pos[0])
         y_catch_pos = abs(self.player.pos[1]-self.star.pos[1])
         
         if x_catch_pos < space_delta and y_catch_pos < space_delta:
+            self.player.rocket_length+=1
             self.counter +=1
             del self.star
             self.star = Star(self)

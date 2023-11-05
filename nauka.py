@@ -7,12 +7,12 @@ class Game(object):
     
     def __init__(self):
         # Config
-        self.max_tps = 120
+        self.max_tps = 85
         self.counter = 0
         #Initialization
         pygame.init()
         
-        self.screen_res = (1278,720)
+        self.screen_res = (1270,700)
         self.screen =  pygame.display.set_mode(self.screen_res)
         self.tps_clock = pygame.time.Clock()
         self.tps_delta = 0.0
@@ -28,7 +28,6 @@ class Game(object):
                 if event.type == pygame.QUIT:
                     sys.exit(0)
 
-            #Ticking
             self.tps_delta+=self.tps_clock.tick()/1000.0
             while self.tps_delta> 1 / self.max_tps:
                 self.tick()
